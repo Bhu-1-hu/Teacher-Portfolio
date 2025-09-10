@@ -1,1 +1,316 @@
 # Teacher-Portfolio
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics Tower</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: 'Times New Roman', Times, serif;
+        scroll-behavior: smooth;
+
+    }
+
+    body {
+        background: radial-gradient(rgb(255, 255, 255), rgb(178, 178, 178));
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+
+    /* navbar */
+    .nav {
+        margin-top: 6px;
+        background-color: rgba(7, 99, 102, 0.115);
+        backdrop-filter: blur(2px);
+        padding: 5px 5px 5px 5px;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .nav h2 a {
+        position: absolute;
+        margin: 4px;
+        font-size: 30px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: white;
+        text-decoration: none;
+        text-shadow: 1px 1px 10px black;
+    }
+
+    .nav h2 a:hover {
+        color: rgb(236, 235, 235);
+    }
+
+    ul {
+        display: flex;
+        justify-content: right;
+        text-decoration: none;
+
+    }
+
+    li {
+        list-style: none;
+        margin: 4px;
+        padding: 8px;
+        transition: 0.5s;
+    }
+
+    ul li a {
+        text-decoration: none;
+        color: white;
+        text-shadow: 1px 1px 15px black;
+    }
+
+    li:hover {
+        transform: translateY(-6px);
+        background-color: rgba(69, 69, 69, 0.592);
+        color: antiquewhite;
+    }
+
+    /* Hero section */
+    .hero {
+        text-align: center;
+        height: 95vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .hero h1,
+    p {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: rgb(0, 64, 120);
+        text-shadow: 1px 1px 20px black;
+    }
+
+    /* About section */
+    .abt {
+        background-color: rgba(22, 22, 22, 0.116);
+        padding: 50px 20px;
+        text-align: center;
+    }
+
+    .abt h2 {
+        text-align: center;
+        font-size: 33px;
+        font-family: 'Courier New', Courier, monospace;
+        margin-bottom: 15px;
+        text-shadow: 1px 1px 15px black;
+    }
+
+    .abt p {
+        font-size: 18px;
+        line-height: 1.6;
+        max-width: 800px;
+        margin: 0px 0px 0px 600px;
+        text-shadow: 1px 1px 15px black;
+        flex: 1;
+        position: absolute;
+        top: 999px;
+    }
+
+
+    .abt img {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        width: 300px;
+        height: 300px;
+        border: 2px solid black;
+        border-radius: 50%;
+        margin: 50px 0px 0px 62px;
+        box-shadow: 1px 1px 30px 1px rgb(255, 255, 255);
+    }
+
+    /* Exprience */
+    .ex {
+        height: 90vh;
+        width: 100%;
+        background-color: rgba(44, 44, 44, 0.288);
+        text-align: center;
+    }
+
+    .ex h2 {
+        font-family: 'Courier New', Courier, monospace;
+        padding: 20px 0px 0px 0px;
+        text-shadow: 1px 1px 15px black;
+        font-size: 33px;
+    }
+
+    /* librally */
+    .pic {
+        background-color: rgba(0, 0, 0, 0.350);
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+    }
+
+    .pic h2 {
+        font-size: 33px;
+        text-align: center;
+        margin: 0px 0px 15px 0px;
+        padding: 20px 0px 10px 0px;
+        font-family: 'Courier New', Courier, monospace;
+        text-shadow: 1px 1px 15px black;
+    }
+
+    .gallery img {
+        width: 90%;
+        border: 2px solid black;
+        border-radius: 15px;
+        box-shadow: 1px 1px 15px 1px rgb(0, 0, 0);
+        transition: transform 0.3s;
+        margin: 0px 0px 0px 11px;
+    }
+
+    .gallery img:hover {
+        box-shadow: 1px 1px 20px 1px rgb(255, 255, 255);
+        transform: scale(1.05);
+        cursor: pointer;
+    }
+    /* contact */
+    .con{
+        background-color: rgba(0, 0, 0, 0.450);
+    }
+    .con h2{
+        text-align: center;
+        padding: 20px;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 33px;
+        
+    }
+     .mcon input,
+    .mcon textarea {
+      width: 50%;
+      padding: 10px;
+      margin: 0px 0px 15px 400px;
+      background: rgba(231, 231, 231, 0.852);
+      color: rgb(0, 14, 14);
+      border: 1px solid rgb(0, 0, 0);
+      border-radius: 30px;
+    }
+
+    .mcon button {
+      border-radius: 15px;
+      background: rgb(216, 216, 216);
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      margin: 50px 0px 80px 0px ;
+      font-weight: bold;
+      cursor: pointer;
+      border: 1px solid black;
+      transition: 0.3s;
+    }
+
+    .mcon button:hover {
+      background: #8a8a8a;
+    }
+
+    footer {
+      background: rgba(0, 0, 0, 0.581);
+      text-align: center;
+      padding: 30px;
+    }
+    footer p{
+        color: black;
+        text-shadow: 1px 1px 15px black;
+    }
+</style>
+
+<body>
+    <!-- navbar -->
+    <section class="nav">
+        <div>
+            <h2><a href="#home">Physics Tower</a></h2>
+        </div>
+        <div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#exprience">Exprience</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </section>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div>
+            <h1>Hey I'm Deepak Jha</h1>
+            <p>The Founder of Physics Tower, Welcome To My Portfolio.</p>
+        </div>
+    </section>
+    <!-- About Section -->
+    <section id="about" class="abt">
+        <div>
+            <h2>About Me</h2>
+        </div>
+        <div>
+            <img src="pfp.jpg" alt="reload">
+            <div>
+                <p>Hey There, I'm Deepak Jha The Founder Of Physics Tower And I'm Also A Electrical Enginner And I'm
+                    From Gwalior Madhya Pradesh. I Have A 16 Years Exprience Of Teaching.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Exprienc3e -->
+    <section id="exprience" class="ex">
+        <div>
+            <h2>Exprience</h2>
+        </div>
+        <div>
+            <p></p>
+        </div>
+    </section>
+    <!-- librally -->
+    <section id="gallery" class="pic">
+        <div>
+            <h2>Picture Librally</h2>
+        </div>
+        <div class="gallery">
+            <a href="dp.jpg" class="img1">
+                <img src="dp.jpg" alt="Reload Page">
+            </a>
+            <a href="chair.jpg" class="img2">
+                <img src="chair.jpg" alt="Reload Page">
+            </a>
+            <a href="ok.jpg" class="img3">
+                <img src="ok.jpg" alt="Reload Page">
+            </a>
+            <a href="dad.jpg" class="img4">
+                <img src="dad.jpg" alt="Reload Page">
+            </a>
+        </div>
+    </section>
+    <!-- Contact -->
+    <Section id="contact" class="con">
+        <div>
+            <h2 class="hc">Contact</h2>
+            <form class="mcon" action="mailto:growthing.wm@gmail.com" method="POST" enctype="text/plain">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="datetime-local" name="meeting" required>
+                <textarea name="purpose" placeholder="Massage" rows="4"></textarea>
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </div>
+    </Section>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; | ZenxZzo Ai Technology — Premium Web, AI & Digital Solutions.</p>
+    </footer>
+</body>
+
+</html>
